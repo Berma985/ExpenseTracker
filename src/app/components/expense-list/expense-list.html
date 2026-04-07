@@ -1,0 +1,14 @@
+<div class="container" style="width: 70%">
+  <h3 class="text-center mt-3">All Expenses</h3>
+  @if (expenseService.expenses().length === 0) {
+    <div class="card" style="background-color: lightskyblue; text-align: center">
+      <div class="card-body">
+        <p class="card-text">No expenses available. Please add some expenses.</p>
+      </div>
+    </div>
+  }
+  @for (expense of expenseService.expenses(); track expense.id) {
+    <br />
+    <app-expense-item [expense]="expense"></app-expense-item>
+  }
+</div>

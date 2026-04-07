@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="card mt-3">
+      <div class="card-header text-center">
+        <h2>Add Expense</h2>
+      </div>
+      <div class="card-body">
+        <form (submit)="addExpense()">
+          <div>
+            <label for="title" class="form-label">Title:</label>
+            <input
+              type="text"
+              id="title"
+              [(ngModel)]="expenseTitle"
+              name="title"
+              class="form-control"
+            />
+          </div>
+          <div>
+            <label for="amount" class="form-label">Amount:</label>
+            <input
+              type="number"
+              id="amount"
+              [(ngModel)]="expenseAmount"
+              name="amount"
+              step="0.01"
+              min="0"
+              class="form-control"
+            />
+          </div>
+          <div>
+            <label for="category" class="form-label">Category:</label>
+            <select
+              id="category"
+              [(ngModel)]="expenseCategory"
+              name="category"
+              class="form-control"
+            >
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Grocery">Grocery</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Travel">Travel</option>
+              <option value="Food">Food</option>
+            </select>
+          </div>
+          <br />
+          <div class="text-center">
+            <button class="btn btn-primary" type="submit">Add Expense</button>
+          </div>
+          <br />
+          <div [style.color]="messageColor()" class="text-center">
+            {{ message() }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3"></div>
+</div>
